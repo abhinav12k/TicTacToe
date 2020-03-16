@@ -13,3 +13,7 @@ Tic-tac-toe is a paper-and-pencil game for two players, X(**RED**) and O(**Yello
 * Click on clone.
 
 # Screenshots
+
+![Screenshot_20200316-152524](https://user-images.githubusercontent.com/51455561/76745494-f1a5fb00-679b-11ea-9c7d-90685f7b4359.jpg)
+![Screenshot_20200316-152555](https://user-images.githubusercontent.com/51455561/76745476-ec48b080-679b-11ea-8ca0-f4cd39a3eece.jpg)
+![Screenshot_20200316-152543](https://user-images.githubusercontent.com/51455561/76745488-efdc3780-679b-11ea-9d2c-0efff32f659e.jpg)
