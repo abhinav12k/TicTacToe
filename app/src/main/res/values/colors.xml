@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="background">#50483F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="load_btn_border">#A5C3D1</color>
+    <color name="btn_text_color">#C4C4C4</color>
+    <color name="real_time_btn_border">#CAD58D</color>
+    <color name="invite_frnds_btn_border">#A1B889</color>
 </resources>

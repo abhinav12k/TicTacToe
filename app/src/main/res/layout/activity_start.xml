@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+
+    <ImageView
+        android:id="@+id/start_title"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/ic_tictactoe"
+        android:layout_marginTop="65dp"
+        />
+
+    <Button
+        android:id="@+id/load_game_btn"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="67dp"
+        android:background="@drawable/load_btn_bg"
+        android:textSize="16dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/open_sans"
+        android:text="Load Game"
+        android:textAllCaps="false"
+        android:textColor="@color/btn_text_color" />
+
+    <Button
+        android:id="@+id/real_time_game_btn"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:textSize="16dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="67dp"
+        android:background="@drawable/real_time_btn_bg"
+        android:elevation="5dp"
+        android:fontFamily="@font/open_sans"
+        android:text="Real Time Game"
+        android:textAllCaps="false"
+        android:textColor="@color/btn_text_color" />
+
+    <Button
+        android:id="@+id/invite_friends_btn"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:textSize="16dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="67dp"
+        android:text="Invite Friends"
+        android:elevation="5dp"
+        android:fontFamily="@font/open_sans"
+        android:textColor="@color/btn_text_color"
+        android:background="@drawable/invite_friends_btn"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/settings_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:fontFamily="@font/open_sans"
+        android:layout_marginStart="67dp"
+        android:layout_marginBottom="49dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="67dp"
+        android:text="Settings"
+        android:elevation="5dp"
+        android:textColor="@color/btn_text_color"
+        android:textAllCaps="false"/>
+
+</LinearLayout>
