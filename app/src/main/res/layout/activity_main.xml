@@ -167,7 +167,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/back_arrow_layout">
 
         <ImageView
             android:id="@+id/back_arrow"

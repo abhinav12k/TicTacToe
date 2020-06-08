@@ -43,7 +43,7 @@
         android:background="@drawable/real_time_btn_bg"
         android:elevation="5dp"
         android:fontFamily="@font/open_sans"
-        android:text="Real Time Game"
+        android:text="With Bot"
         android:textAllCaps="false"
         android:textColor="@color/btn_text_color" />
 

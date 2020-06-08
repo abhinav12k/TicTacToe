@@ -9,13 +9,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private AlertDialog inputDialog;
-    private ImageView back_arrow;
+//    private ImageView back_arrow;
+    private LinearLayout back_arrow_layout;
     private boolean backTouch;
     // 0:yellow; 1:red; 2: empty; 3: computer
 
@@ -127,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
         );
 
         backTouch=false;
-        back_arrow = findViewById(R.id.back_arrow);
-        back_arrow.setOnClickListener(new View.OnClickListener() {
+        back_arrow_layout = findViewById(R.id.back_arrow_layout);
+        back_arrow_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(backTouch){

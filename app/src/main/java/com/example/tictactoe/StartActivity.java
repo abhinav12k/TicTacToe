@@ -10,6 +10,7 @@ import android.widget.Button;
 public class StartActivity extends AppCompatActivity {
 
     private Button load_game;
+    private Button with_bot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,15 @@ public class StartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent mainIntent = new Intent(StartActivity.this, MainActivity.class);
                 startActivity(mainIntent);
+            }
+        });
+
+        with_bot = findViewById(R.id.real_time_game_btn);
+        with_bot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent botIntent = new Intent(StartActivity.this,playWithBot.class);
+                startActivity(botIntent);
             }
         });
 
