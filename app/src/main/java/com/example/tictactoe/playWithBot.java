@@ -51,25 +51,32 @@ public class playWithBot extends AppCompatActivity {
             //function to obtain answer from computer and put in the right place
 
             checkWin();
-            getBotMove(tappedCounter);      //bot
+            if (gameCurrentState)
+                getBotMove(tappedCounter);      //bot
 
 
         }
 
-        if (!gameCurrentState) {
-            boolean isFinished = false;
-            for (int i = 0; i < 9; i++) {
-                if (gameState[i] != 2) {
-                    System.out.println(gameState[i]);
-                    isFinished = true;
-                }
-            }
-            if (isFinished) {
-                //check again for win!!
-                checkWin();
-            }
+//        if (!gameCurrentState) {
+//            boolean isFinished = false;
+//            int count = 1;
+//            for (int i = 0; i < 9; i++) {
+//                if (gameState[i] != 2) {
+//                    System.out.println(gameState[i]);
+//                    isFinished = true;
+//                    count++;
+//                }
+//            }
+//            if (isFinished && count == 9) {
+//                //check again for win!!
+//
+//                if (gameState[0] == gameState[1] && gameState[1] == gameState[2] || gameState[3] == gameState[4] && gameState[4] == gameState[5] || gameState[6] == gameState[7] && gameState[7] == gameState[8] || gameState[0] == gameState[3] && gameState[3] == gameState[6] || gameState[1] == gameState[4] && gameState[4] == gameState[7] || gameState[2] == gameState[5] && gameState[5] == gameState[8] || gameState[0] == gameState[4] && gameState[4] == gameState[8] || gameState[2] == gameState[4] && gameState[4] == gameState[6]) {
+//                    Toast.makeText(mContext, "Somebody wins!!" + activePlayer, Toast.LENGTH_SHORT).show();
+//                }
+//                checkWin();
+//            }
 
-        }
+//        }
     }
 
     private void getBotMove(int tappedCounter) {
@@ -79,16 +86,17 @@ public class playWithBot extends AppCompatActivity {
 
             int randomTag = rand.nextInt(9);
             Log.d("Bot Activity", String.valueOf(randomTag));
-            while (randomTag == tappedCounter && gameState[randomTag] != 2) {
 
+            while (randomTag == tappedCounter) {
                 randomTag = rand.nextInt(9);
-                Log.d("Bot Activity", "inside while loop random tag: " + randomTag);
+                Log.d("Bot Activity", "inside while loop for same tapped counter: " + randomTag);
             }
 
-//            while (gameState[randomTag] != 2) {
-//                randomTag = rand.nextInt(9);
-//                Log.d("Bot Activity", "inside while loop random tag: " + randomTag);
-//            }
+            //getting an empty cell
+            while (gameState[randomTag] != 2) {
+                randomTag = rand.nextInt(9);
+                Log.d("Bot Activity", "inside while loop for empty location: " + randomTag);
+            }
 
 
             int pos = randomTag + 1;
@@ -117,6 +125,7 @@ public class playWithBot extends AppCompatActivity {
 
             case "R.id.imageView1":
                 return imageView1;
+
             case "R.id.imageView2":
                 return imageView2;
 
@@ -171,9 +180,27 @@ public class playWithBot extends AppCompatActivity {
                 playAgain.setVisibility(View.VISIBLE);
             } else if (gameState[0] != 2 && gameState[1] != 2 && gameState[2] != 2 && gameState[3] != 2 && gameState[4] != 2 && gameState[5] != 2 && gameState[6] != 2 && gameState[7] != 2 && gameState[8] != 2) {
 
+                gameCurrentState = false;
+
                 winnerText.setText("Draw");
                 winnerText.setVisibility(View.VISIBLE);
                 playAgain.setVisibility(View.VISIBLE);
+
+                if (gameState[0] == gameState[1] && gameState[1] == gameState[2] || gameState[3] == gameState[4] && gameState[4] == gameState[5] || gameState[6] == gameState[7] && gameState[7] == gameState[8] || gameState[0] == gameState[3] && gameState[3] == gameState[6] || gameState[1] == gameState[4] && gameState[4] == gameState[7] || gameState[2] == gameState[5] && gameState[5] == gameState[8] || gameState[0] == gameState[4] && gameState[4] == gameState[8] || gameState[2] == gameState[4] && gameState[4] == gameState[6]) {
+//                    Toast.makeText(playWithBot.this, "Somebody wins!!" + activePlayer, Toast.LENGTH_SHORT).show();
+
+                    String winner = "";
+                    if (activePlayer == 1)
+                        winner = "Human";
+                    else
+                        winner = "Bot";
+
+                    winnerText.setText(winner + " has won");
+                    winnerText.setVisibility(View.VISIBLE);
+                    playAgain.setVisibility(View.VISIBLE);
+
+
+                }
             }
 
         }
