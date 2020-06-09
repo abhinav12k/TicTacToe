@@ -11,6 +11,7 @@ public class StartActivity extends AppCompatActivity {
 
     private Button load_game;
     private Button with_bot;
+    private Button invite_friends;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +48,21 @@ public class StartActivity extends AppCompatActivity {
         with_bot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent botIntent = new Intent(StartActivity.this,playWithBot.class);
+                Intent botIntent = new Intent(StartActivity.this, playWithBot.class);
                 startActivity(botIntent);
+            }
+        });
+
+        invite_friends = findViewById(R.id.invite_friends_btn);
+        invite_friends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String message = "Hi there! I invite you to check this app out." + "\n" + "app_url";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+
             }
         });
 

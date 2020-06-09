@@ -69,26 +69,6 @@ public class playWithBot extends AppCompatActivity {
 
         }
 
-//        if (!gameCurrentState) {
-//            boolean isFinished = false;
-//            int count = 1;
-//            for (int i = 0; i < 9; i++) {
-//                if (gameState[i] != 2) {
-//                    System.out.println(gameState[i]);
-//                    isFinished = true;
-//                    count++;
-//                }
-//            }
-//            if (isFinished && count == 9) {
-//                //check again for win!!
-//
-//                if (gameState[0] == gameState[1] && gameState[1] == gameState[2] || gameState[3] == gameState[4] && gameState[4] == gameState[5] || gameState[6] == gameState[7] && gameState[7] == gameState[8] || gameState[0] == gameState[3] && gameState[3] == gameState[6] || gameState[1] == gameState[4] && gameState[4] == gameState[7] || gameState[2] == gameState[5] && gameState[5] == gameState[8] || gameState[0] == gameState[4] && gameState[4] == gameState[8] || gameState[2] == gameState[4] && gameState[4] == gameState[6]) {
-//                    Toast.makeText(mContext, "Somebody wins!!" + activePlayer, Toast.LENGTH_SHORT).show();
-//                }
-//                checkWin();
-//            }
-
-//        }
     }
 
     private void getBotMove(int tappedCounter) {
