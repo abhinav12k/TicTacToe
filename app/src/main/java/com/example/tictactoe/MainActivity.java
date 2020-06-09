@@ -63,10 +63,12 @@ public class MainActivity extends AppCompatActivity {
             if (activePlayer == 0) {
                 counter.setImageResource(R.drawable.ic_o);
                 playerInst.setText(player2);
+                playerInst.setTextColor(getResources().getColor(R.color.hint_color));
                 activePlayer = 1;
             } else {
                 counter.setImageResource(R.drawable.ic_x);
                 playerInst.setText(player1);
+                playerInst.setTextColor(getResources().getColor(R.color.load_btn_border));
                 activePlayer = 0;
             }
 
@@ -126,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
     public void playAgain(View view) {
 
         getInputDialog();
+        inst_layout.setVisibility(View.VISIBLE);
 
         TextView winnerText = (TextView) findViewById(R.id.winnerTextView);
         Button playAgain = (Button) findViewById(R.id.PlayAgainButton);
@@ -192,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void getInputDialog(){
+    public void getInputDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyDialogTheme);
         LayoutInflater inflater = getLayoutInflater();
@@ -204,15 +207,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                dialogInterface.dismiss();
-                player1 = player1EditText.getText().toString();
-                player2 = player2EditText.getText().toString();
-                playerInst.setText(player1);
-//                Toast.makeText(MainActivity.this, "Valid player names", Toast.LENGTH_SHORT).show();
-
-
+                //function written later to not allow the user to enter blank names
             }
         });
         builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
@@ -222,11 +217,32 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        builder.show();
 
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // write check code
+                if (TextUtils.isEmpty(player1EditText.getText().toString())) {
+                    player1EditText.setError("Please enter a name");
+                    return;
+                }
+                if (TextUtils.isEmpty(player2EditText.getText().toString())) {
+                    player2EditText.setError("Please enter a name");
+                    return;
+                }
 
+                dialog.dismiss();
+                player1 = player1EditText.getText().toString();
+                player2 = player2EditText.getText().toString();
+                playerInst.setText(player1);
+                playerInst.setTextColor(getResources().getColor(R.color.load_btn_border));
+//                Toast.makeText(MainActivity.this, "Valid player names", Toast.LENGTH_SHORT).show();
 
+            }
+
+        });
     }
-
 
 }

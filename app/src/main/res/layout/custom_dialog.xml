@@ -16,6 +16,12 @@
         android:layout_gravity="center"
         android:text="Enter Player Details" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
     <EditText
         android:padding="5dp"
         android:textSize="18dp"
@@ -29,7 +35,22 @@
         android:layout_gravity="center"
         android:fontFamily="@font/federant"
         android:hint="Player 1"
-        android:textColorHint="@color/background"/>
+        android:textColorHint="@color/hint_color"/>
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_o"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
     <EditText
         android:padding="5dp"
@@ -44,6 +65,13 @@
         android:layout_gravity="center"
         android:fontFamily="@font/federant"
         android:hint="Player 2"
-        android:textColorHint="@color/background"/>
-
+        android:textColorHint="@color/load_btn_border"/>
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="5dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_x"/>
+    </LinearLayout>
 </LinearLayout>
