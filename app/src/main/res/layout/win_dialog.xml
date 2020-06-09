@@ -22,7 +22,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/aclonica"
         android:lineHeight="21sp"
-        android:text="Player win!!"
+        android:text="@string/player_win"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="14sp" />
