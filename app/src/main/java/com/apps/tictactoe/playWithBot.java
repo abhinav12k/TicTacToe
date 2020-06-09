@@ -20,6 +20,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.Random;
 
 public class playWithBot extends AppCompatActivity {
@@ -254,10 +258,18 @@ public class playWithBot extends AppCompatActivity {
 
     }
 
+    private AdView adView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_with_bot);
+
+        adView = findViewById(R.id.adView);
+
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544/6300978111");
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         inst_layout = findViewById(R.id.inst_layout);
         playerInst = findViewById(R.id.player_inst);

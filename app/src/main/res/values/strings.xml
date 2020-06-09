@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
     <string name="player_win">Player win!!</string>
+    <string name="banner_home_footer">ca-app-pub-3941069737484916/3311511394</string>
 </resources>
