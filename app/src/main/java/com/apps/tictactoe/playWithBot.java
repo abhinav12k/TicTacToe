@@ -1,4 +1,4 @@
-package com.example.tictactoe;
+package com.apps.tictactoe;
 
 import android.app.Dialog;
 import android.content.DialogInterface;

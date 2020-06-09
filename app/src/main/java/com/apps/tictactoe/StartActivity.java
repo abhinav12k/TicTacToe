@@ -1,4 +1,4 @@
-package com.example.tictactoe;
+package com.apps.tictactoe;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
