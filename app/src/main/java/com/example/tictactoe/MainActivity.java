@@ -159,8 +159,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         inst_layout = findViewById(R.id.inst_layout);
-
         playerInst = findViewById(R.id.player_inst);
+
         getWindow().setFlags(
 
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,

@@ -34,7 +34,7 @@
         android:textAlignment="center"
         android:layout_gravity="center"
         android:fontFamily="@font/federant"
-        android:hint="Player 1"
+        android:hint="Enter First player's name"
         android:textColorHint="@color/hint_color"/>
 
         <ImageView
@@ -64,7 +64,7 @@
         android:textAlignment="center"
         android:layout_gravity="center"
         android:fontFamily="@font/federant"
-        android:hint="Player 2"
+        android:hint="Enter Second player's name"
         android:textColorHint="@color/load_btn_border"/>
     <ImageView
         android:layout_width="18dp"

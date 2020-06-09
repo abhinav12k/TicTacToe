@@ -1,14 +1,20 @@
 package com.example.tictactoe;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,9 +22,13 @@ import java.util.Random;
 
 public class playWithBot extends AppCompatActivity {
 
-    private ImageView back_arrow, imageView1, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8, imageView9;
+    private String player1, player2 = "Baymax (Bot)";
+    private EditText player1EditText;
+    private TextView playerInst;
+    private LinearLayout back_arrow_layout, inst_layout;
+    private ImageView imageView1, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8, imageView9;
     private boolean backTouch;
-    private Context mContext;
+
     // 0:yellow; 1:red(Bot); 2: empty; 3: computer
 
     //0--> human
@@ -45,6 +55,8 @@ public class playWithBot extends AppCompatActivity {
             image.setTranslationY(-1000);
 
             image.setImageResource(R.drawable.ic_o);
+            playerInst.setText(player2);
+            playerInst.setTextColor(getResources().getColor(R.color.hint_color));
             activePlayer = 1;   //computer turn
             image.animate().translationY(12).rotationBy(3600).setDuration(200);
             image.setClickable(false);
@@ -111,6 +123,8 @@ public class playWithBot extends AppCompatActivity {
 
             currentPos.setTranslationY(-1000);
             currentPos.setImageResource(R.drawable.ic_x);
+            playerInst.setText(player1);
+            playerInst.setTextColor(getResources().getColor(R.color.load_btn_border));
             activePlayer = 0;   //human
             currentPos.animate().translationY(12).rotationBy(3600).setDuration(200);
             currentPos.setClickable(false);
@@ -166,6 +180,7 @@ public class playWithBot extends AppCompatActivity {
 
             if (gameState[winningPosition[0]] == gameState[winningPosition[1]] && gameState[winningPosition[1]] == gameState[winningPosition[2]] && gameState[winningPosition[0]] != 2) {
 
+                inst_layout.setVisibility(View.GONE);
                 //someone has won
                 gameCurrentState = false;
 
@@ -180,6 +195,7 @@ public class playWithBot extends AppCompatActivity {
                 playAgain.setVisibility(View.VISIBLE);
             } else if (gameState[0] != 2 && gameState[1] != 2 && gameState[2] != 2 && gameState[3] != 2 && gameState[4] != 2 && gameState[5] != 2 && gameState[6] != 2 && gameState[7] != 2 && gameState[8] != 2) {
 
+                inst_layout.setVisibility(View.GONE);
                 gameCurrentState = false;
 
                 winnerText.setText("Draw");
@@ -191,9 +207,9 @@ public class playWithBot extends AppCompatActivity {
 
                     String winner = "";
                     if (activePlayer == 1)
-                        winner = "Human";
+                        winner = player1;
                     else
-                        winner = "Bot";
+                        winner = "Baymax (Bot)";
 
                     winnerText.setText(winner + " has won");
                     winnerText.setVisibility(View.VISIBLE);
@@ -208,6 +224,9 @@ public class playWithBot extends AppCompatActivity {
 
 
     public void playAgain(View view) {
+
+        getInputDialog();
+        inst_layout.setVisibility(View.VISIBLE);
 
         TextView winnerText = (TextView) findViewById(R.id.winnerTextView);
         Button playAgain = (Button) findViewById(R.id.PlayAgainButton);
@@ -238,6 +257,9 @@ public class playWithBot extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_with_bot);
 
+        inst_layout = findViewById(R.id.inst_layout);
+        playerInst = findViewById(R.id.player_inst);
+
         imageView1 = findViewById(R.id.imageView1);
         imageView2 = findViewById(R.id.imageView2);
         imageView3 = findViewById(R.id.imageView3);
@@ -266,8 +288,8 @@ public class playWithBot extends AppCompatActivity {
         );
 
         backTouch = false;
-        back_arrow = findViewById(R.id.back_arrow);
-        back_arrow.setOnClickListener(new View.OnClickListener() {
+        back_arrow_layout = findViewById(R.id.back_arrow_layout);
+        back_arrow_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (backTouch) {
@@ -278,7 +300,6 @@ public class playWithBot extends AppCompatActivity {
                 }
             }
         });
-
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -342,12 +363,52 @@ public class playWithBot extends AppCompatActivity {
             }
         });
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
+        getInputDialog();
 
     }
+
+    public void getInputDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyDialogTheme);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogLayout = inflater.inflate(R.layout.custom_dialog_bot, null);
+        player1EditText = (EditText) dialogLayout.findViewById(R.id.player1);
+        builder.setCancelable(false);
+        builder.setView(dialogLayout);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //function written later to not allow the user to enter blank names
+            }
+        });
+        builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+                finish();
+            }
+        });
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // write check code
+                if (TextUtils.isEmpty(player1EditText.getText().toString())) {
+                    player1EditText.setError("Please enter a name");
+                    return;
+                }
+
+                dialog.dismiss();
+                player1 = player1EditText.getText().toString();
+                playerInst.setText(player1);
+                playerInst.setTextColor(getResources().getColor(R.color.load_btn_border));
+//                Toast.makeText(MainActivity.this, "Valid player names", Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
+    }
+
 }
