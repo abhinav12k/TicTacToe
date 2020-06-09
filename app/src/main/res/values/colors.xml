@@ -10,4 +10,5 @@
     <color name="btn_text_color">#C4C4C4</color>
     <color name="real_time_btn_border">#CAD58D</color>
     <color name="invite_frnds_btn_border">#A1B889</color>
+    <color name="dialog_color">#E5E5E5</color>
 </resources>
