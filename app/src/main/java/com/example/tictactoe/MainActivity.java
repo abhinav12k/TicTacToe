@@ -1,12 +1,15 @@
 package com.example.tictactoe;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
@@ -32,7 +35,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String player1, player2;
+    private String player1, player2,exit="";
     private EditText player1EditText, player2EditText;
     private TextView playerInst;
     private LinearLayout back_arrow_layout, inst_layout;
@@ -86,21 +89,29 @@ public class MainActivity extends AppCompatActivity {
                     //someone has won
                     gameCurrentState = false;
 
+
                     String winner = "";
                     if (activePlayer == 1)
                         winner = player1;
                     else
                         winner = player2;
 
-                    winnerText.setText(winner + " has won");
-                    winnerText.setVisibility(View.VISIBLE);
+
+                    //show dialog of win
+                    Dialog dialog = new Dialog(MainActivity.this);
+                    dialog.setContentView(R.layout.win_dialog);
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    TextView winnerTv = dialog.findViewById(R.id.winner_dialog_text);
+                    winnerTv.setText(winner + " wins!!");
+                    dialog.show();
+
+//                    winnerText.setText(winner + " has won");
+//                    winnerText.setVisibility(View.VISIBLE);
                     playAgain.setVisibility(View.VISIBLE);
                 } else if (gameState[0] != 2 && gameState[1] != 2 && gameState[2] != 2 && gameState[3] != 2 && gameState[4] != 2 && gameState[5] != 2 && gameState[6] != 2 && gameState[7] != 2 && gameState[8] != 2) {
 
                     inst_layout.setVisibility(View.GONE);
-                    winnerText.setText("Draw");
-                    winnerText.setVisibility(View.VISIBLE);
-                    playAgain.setVisibility(View.VISIBLE);
+                    gameCurrentState = false;
 
                     if (gameState[0] == gameState[1] && gameState[1] == gameState[2] || gameState[3] == gameState[4] && gameState[4] == gameState[5] || gameState[6] == gameState[7] && gameState[7] == gameState[8] || gameState[0] == gameState[3] && gameState[3] == gameState[6] || gameState[1] == gameState[4] && gameState[4] == gameState[7] || gameState[2] == gameState[5] && gameState[5] == gameState[8] || gameState[0] == gameState[4] && gameState[4] == gameState[8] || gameState[2] == gameState[4] && gameState[4] == gameState[6]) {
 //                    Toast.makeText(playWithBot.this, "Somebody wins!!" + activePlayer, Toast.LENGTH_SHORT).show();
@@ -111,11 +122,25 @@ public class MainActivity extends AppCompatActivity {
                         else
                             winner = player2;
 
-                        winnerText.setText(winner + " has won");
-                        winnerText.setVisibility(View.VISIBLE);
+
+
+                        //show dialog of win
+                        Dialog dialog = new Dialog(MainActivity.this);
+                        dialog.setContentView(R.layout.win_dialog);
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                        TextView winnerTv = dialog.findViewById(R.id.winner_dialog_text);
+                        winnerTv.setText(winner+" wins!!");
+                        dialog.show();
+
+//                        winnerText.setText(winner + " has won");
+//                        winnerText.setVisibility(View.VISIBLE);
                         playAgain.setVisibility(View.VISIBLE);
 
 
+                    }else{
+                        winnerText.setText("Draw");
+                        winnerText.setVisibility(View.VISIBLE);
+                        playAgain.setVisibility(View.VISIBLE);
                     }
 
                 }
@@ -186,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 } else {
                     backTouch = true;
-                    Toast.makeText(MainActivity.this, "Are you sure, you want to Quit!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Press Back again to exit", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -245,4 +270,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        if(exit == "finish"){
+            finish();
+            exit = "";
+        }
+
+        Toast.makeText(MainActivity.this, "Press Back again to exit", Toast.LENGTH_SHORT).show();
+        exit = "finish";
+    }
 }
