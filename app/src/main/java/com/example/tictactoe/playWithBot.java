@@ -1,7 +1,6 @@
 package com.example.tictactoe;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -416,7 +415,7 @@ public class playWithBot extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(exit == "finish"){
+        if(exit.equals("finish")){
             finish();
             exit = "";
         }
