@@ -59,7 +59,8 @@ public class StartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String message = "Hi there! I invite you to check this app out." + "\n" + "app_url";
+                String app_url = "https://play.google.com/store/apps/details?id=com.apps.tictactoe";
+                String message = "Hi there! I invite you to check this app out." + "\n" + app_url;
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
 
