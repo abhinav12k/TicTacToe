@@ -1,4 +1,4 @@
-package com.apps.tictactoe;
+package com.apps.simpletictactoe;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

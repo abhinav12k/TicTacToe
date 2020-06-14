@@ -1,4 +1,4 @@
-package com.apps.tictactoe;
+package com.apps.simpletictactoe;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
         adView = findViewById(R.id.adView);
 
-        MobileAds.initialize(this,"ca-app-pub-3940256099942544/6300978111");
+        MobileAds.initialize(this,"ca-app-pub-3941069737484916~8507997756");
 
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);

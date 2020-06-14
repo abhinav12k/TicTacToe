@@ -25,7 +25,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:fontFamily="@font/open_sans"
-            android:text="Abhinav"
+            android:text="@string/first_player"
             android:textColor="@color/white"
             android:textSize="30dp" />
 
@@ -36,7 +36,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:fontFamily="@font/open_sans_light"
-            android:text="'s move"
+            android:text="@string/s_move"
             android:textColor="@color/btn_text_color"
             android:textSize="30dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/player_inst" />

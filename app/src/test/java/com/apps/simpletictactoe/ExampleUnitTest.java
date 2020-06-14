@@ -1,4 +1,4 @@
-package com.apps.tictactoe;
+package com.apps.simpletictactoe;
 
 import org.junit.Test;
 
