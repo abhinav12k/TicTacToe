@@ -12,6 +12,8 @@ Tic-tac-toe is a paper-and-pencil game for two players, X(**RED**) and O(**Yello
 * Paste url to repository i.e https://github.com/abhinav78910/TicTacToe.git
 * Click on clone.
 
+## Get it on Playstore[link](https://play.google.com/store/apps/details?id=com.apps.simpletictactoe)
+
 # Screenshots
 
 ![Screenshot_20200316-152524](https://user-images.githubusercontent.com/51455561/76745494-f1a5fb00-679b-11ea-9c7d-90685f7b4359.jpg)
