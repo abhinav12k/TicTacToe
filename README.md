@@ -5,11 +5,17 @@ Tic-tac-toe is a paper-and-pencil game for two players, X(**RED**) and O(**Yello
 * Multiplayer
 * Simplistic UI
 
+# Want to contribute?
+* Fork the repo
+* Make changes/improvement in the forked repo
+* Commit your changes
+* Create a pull request to be merged
+
 # Getting Started
 * In android studio goto file
 * Select new > Import from version control
 * Choose git / github (git option recommanded )
-* Paste url to repository i.e https://github.com/abhinav78910/TicTacToe.git
+* Paste url to repository i.e https://github.com/{your_userId}/TicTacToe.git
 * Click on clone.
 
 ## Get it on [Playstore](https://play.google.com/store/apps/details?id=com.apps.simpletictactoe)
