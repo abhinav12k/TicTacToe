@@ -17,7 +17,7 @@ This is an Open Source project and we would be happy to see contributors who rep
 
 ## Pull Request Process
 
-1. Go to the repository on GitHub at https://github.com/abhinav78910/Note_It.
+1. Go to the repository on GitHub at https://github.com/abhinav78910/TicTacToe.
 2. Click the “Fork” button at the top right.
 3. You’ll now have your copy of the original Note_It! repository in your GitHub account.
 4. You may directly import using android studio
