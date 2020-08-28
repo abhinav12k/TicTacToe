@@ -6,10 +6,7 @@ Tic-tac-toe is a paper-and-pencil game for two players, X(**RED**) and O(**Yello
 * Simplistic UI
 
 # Want to contribute?
-* Fork the repo
-* Make changes/improvement in the forked repo
-* Commit your changes
-* Create a pull request to be merged
+* See the [Contributer's Guide](https://github.com/abhinav78910/TicTacToe/blob/master/Contributing.md)
 
 # Getting Started
 * In android studio goto file
